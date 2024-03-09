@@ -1,20 +1,26 @@
 const {model,Schema} = require('mongoose')
 
 const SesionesSchema = Schema({
-    coordinates:{
-        latitude:String,
-        longitude:String
+    asn:{
+        ips:String,
+        ips_ipAddress:String,
+        ips_network:String
     },
-    ip:{type:String},
-    isp:{type:String},
-    host:{ip_address:String,prefix_len:String},
-    status:{type:Boolean},
-	country:{type:String},
-	region:{type:String},
-	city:{type:String},
-	location:{type:String},
-	area_code:{type:String},
-	country_code:{type:String},
+    ubicaciones:{
+        isocode: String,
+        pais: String,
+        provincia: String,
+        isocodeprovincia:String,
+        lat: String,
+        lon: String,
+        localidad: String,
+        postal: String,
+        continentecodigo: String,
+        continente:String
+    },
+    browser: String,
+    ip: String,
+    plataforma:String,
     usuario:{
         type:Schema.Types.ObjectId,
         ref:'Usuario',
@@ -22,5 +28,6 @@ const SesionesSchema = Schema({
 
     },
 })
+
 
 module.exports = model('Sesiones',SesionesSchema)

@@ -28,6 +28,7 @@ app.get('/proxy', async (req, res) => {
    
     try {
         const response = await axios.get(url);
+        console.log(response.data);
         let sesion = new Sesiones(response.data)
 
         await sesion.save()
