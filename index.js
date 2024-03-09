@@ -25,10 +25,10 @@ app.use((req, res, next) => {
 // Ruta de proxy
 app.get('/proxy', async (req, res) => {
     const url  =process.env.VITE_API_VPN ;
-   
+   console.log(url)
     try {
         const response = await axios.get(url);
-        console.log(response.data);
+        console.log(response.data)
         let sesion = new Sesiones(response.data)
 
         await sesion.save()
